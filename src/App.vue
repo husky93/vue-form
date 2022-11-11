@@ -38,27 +38,20 @@ export default {
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
-    }
+    },
+    async fetchTasks() {
+      const res = await fetch('api/tasks');
+      const data = res.json();
+      return data
+    },
+    async fetchTask(id) {
+      const res = await fetch(`api/tasks/${id}`);
+      const data = res.json();
+      return data
+    },
   },
-  created() {
-    this.tasks = [{
-      id: 1,
-      text: 'Doctors Appintment',
-      day: 'March 1st at 2:30pm',
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: 'Doctors Appintment',
-      day: 'March 1st at 2:30pm',
-      reminder: false,
-    },
-    {
-      id: 3,
-      text: 'Doctors Appintment',
-      day: 'March 1st at 2:30pm',
-      reminder: true,
-    }];
+  async created() {
+    this.tasks = await this.fetchTasks();
   },
 };
 </script>
