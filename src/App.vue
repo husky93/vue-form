@@ -27,8 +27,9 @@ export default {
     };
   },
   methods: {
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((item) => item.id !== id);
+    async deleteTask(id) {
+      const res = await fetch(`/api/tasks/${id}`, {method: 'DELETE'})
+      res.status === 200 ? this.tasks = this.tasks.filter((item) => item.id !== id) : alert('Error deleting task')
     },
     toggleReminder(id) {
       this.tasks = this.tasks.map((item) => item.id === id ? { ...item, reminder: !item.reminder } : item);
