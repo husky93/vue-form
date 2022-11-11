@@ -1,4 +1,4 @@
-# vue-form
+# vue-task
 
 Simple Vue.js app made for learning purposes.
 
