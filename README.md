@@ -1,5 +1,7 @@
 # vue-form
 
+Simple Vue.js app made for learning purposes.
+
 ## Project setup
 ```
 npm install
